@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="https://1.bp.blogspot.com/-q1hXV76r2pE/YJKe2l9-01I/AAAAAAAAAE8/dqKbm4_8s64-17G5vlywo8hbvkJBLV--QCNcBGAsYHQ/s32/idea.ico">
+	<title>
+        ▷ Membuka Mysql Di Cmd
+    </title>
+    <style>:root{--border-radius:5px;--box-shadow:2px 2px 10px;--color:#118bee;--color-accent:#118bee15;--color-bg:#fff;--color-bg-secondary:#e9e9e9;--color-secondary:#0645AD;--color-secondary-accent:#920de90b;--color-shadow:#f4f4f4;--color-text:#000;--color-text-secondary:#999;--font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;--hover-brightness:1.2;--justify-important:center;--justify-normal:left;--line-height:1.5;--width-card:285px;--width-card-medium:460px;--width-card-wide:800px;--width-content:1080px}article aside{background:var(--color-secondary-accent);border-left:4px solid var(--color-secondary);padding:.01rem .8rem}body{background:var(--color-bg);color:var(--color-text);font-family:var(--font-family);line-height:var(--line-height);margin:0;overflow-x:hidden;padding:1rem 0}footer,header,main{margin:0 auto;max-width:var(--width-content);padding:0rem 1rem}hr{background-color:var(--color-bg-secondary);border:none;height:1px;margin:4rem 0}section{display:flex;flex-wrap:wrap;justify-content:var(--justify-important)}section aside{border:1px solid var(--color-bg-secondary);border-radius:var(--border-radius);box-shadow:var(--box-shadow) var(--color-shadow);margin:1rem;padding:1.25rem;width:var(--width-card)}section aside:hover{box-shadow:var(--box-shadow) var(--color-bg-secondary)}section aside img{max-width:100%}[hidden]{display:none}article header,div header,main header{padding-top:0}header{text-align:var(--justify-important)}header a b,header a em,header a i,header a strong{margin-left:.5rem;margin-right:.5rem}header nav img{margin:1rem 0}section header{padding-top:0;width:100%}nav{align-items:center;display:flex;font-weight:700;justify-content:space-between;margin-bottom:7rem}nav ul{list-style:none;padding:0}nav ul li{display:inline-block;margin:0 .5rem;position:relative;text-align:left}nav ul li:hover ul{display:block}nav ul li ul{background:var(--color-bg);border:1px solid var(--color-bg-secondary);border-radius:var(--border-radius);box-shadow:var(--box-shadow) var(--color-shadow);display:none;height:auto;left:-2px;padding:.5rem 1rem;position:absolute;top:1.7rem;white-space:nowrap;width:auto}nav ul li ul li,nav ul li ul li a{display:block}code,samp{background-color:var(--color-accent);border-radius:var(--border-radius);color:var(--color-text);display:inline-block;margin:0 .1rem;padding:0 .5rem}details{margin:1.3rem 0}details summary{font-weight:700;cursor:pointer}h1,h2,h3,h4,h5,h6{line-height:var(--line-height)}mark{padding:.1rem}ol li,ul li{padding:.2rem 0}p{margin:.75rem 0;padding:0}pre{margin:1rem 0;max-width:var(--width-card-wide);padding:1rem 0}pre code,pre samp{display:block;max-width:var(--width-card-wide);padding:.5rem 2rem;white-space:pre-wrap}small{color:var(--color-text-secondary)}sup{background-color:var(--color-secondary);border-radius:var(--border-radius);color:var(--color-bg);font-size:xx-small;font-weight:700;margin:.2rem;padding:.2rem .3rem;position:relative;top:-2px}a{color:var(--color-secondary);display:inline-block;text-decoration:none}a:hover{filter:brightness(var(--hover-brightness));text-decoration:underline}a b,a em,a i,a strong,button{border-radius:var(--border-radius);display:inline-block;font-size:medium;font-weight:700;line-height:var(--line-height);margin:.5rem 0;padding:1rem 2rem}button{font-family:var(--font-family)}button:hover{cursor:pointer;filter:brightness(var(--hover-brightness))}a b,a strong,button{background-color:var(--color);border:2px solid var(--color);color:var(--color-bg)}a em,a i{border:2px solid var(--color);border-radius:var(--border-radius);color:var(--color);display:inline-block;padding:1rem}figure{margin:0;padding:0}figure img{max-width:100%}figure figcaption{color:var(--color-text-secondary)}button:disabled,input:disabled{background:var(--color-bg-secondary);border-color:var(--color-bg-secondary);color:var(--color-text-secondary);cursor:not-allowed}button[disabled]:hover{filter:none}form{border:1px solid var(--color-bg-secondary);border-radius:var(--border-radius);box-shadow:var(--box-shadow) var(--color-shadow);display:block;max-width:var(--width-card-wide);min-width:var(--width-card);padding:1.5rem;text-align:var(--justify-normal)}form header{margin:1.5rem 0;padding:1.5rem 0}input,label,select,textarea{display:block;font-size:inherit;max-width:var(--width-card-wide)}input[type=checkbox],input[type=radio]{display:inline-block}input[type=checkbox]+label,input[type=radio]+label{display:inline-block;font-weight:400;position:relative;top:1px}input,select,textarea{border:1px solid var(--color-bg-secondary);border-radius:var(--border-radius);margin-bottom:1rem;padding:.4rem .8rem}input[readonly],textarea[readonly]{background-color:var(--color-bg-secondary)}label{font-weight:700;margin-bottom:.2rem}table{border:1px solid var(--color-bg-secondary);border-radius:var(--border-radius);border-spacing:0;display:inline-block;max-width:100%;overflow-x:auto;padding:0;white-space:nowrap}table td,table th,table tr{padding:.4rem .8rem;text-align:var(--justify-important)}table thead{background-color:var(--color);border-collapse:collapse;border-radius:var(--border-radius);color:var(--color-bg);margin:0;padding:0}table thead th:first-child{border-top-left-radius:var(--border-radius)}table thead th:last-child{border-top-right-radius:var(--border-radius)}table thead th:first-child,table tr td:first-child{text-align:var(--justify-normal)}table tr:nth-child(even){background-color:var(--color-accent)}blockquote{display:block;font-size:x-large;line-height:var(--line-height);margin:1rem auto;max-width:var(--width-card-medium);padding:1.5rem 1rem;text-align:var(--justify-important)}blockquote footer{color:var(--color-text-secondary);display:block;font-size:small;line-height:var(--line-height);padding:1.5rem 0} article{padding: 1.25rem;}.v-cover{height: 480px; object-fit: cover;width: 100vw;cursor: pointer;}.v-image{height: 250px; object-fit: cover;width: 100vw;cursor: pointer;}.dwn-cover{max-height: 460px; object-fit: cover;}.w-100{width: 100vw}.search-box{color:#333;background-color:#f5f5f5;width:85%;height:50px;padding:0 20px;border:none;border-radius:20px;outline:0;border:1px solid #002cd92e}.search-box:active,.search-box:focus,.search-box:hover{border:1px solid #d9008e}.btn{display:inline-block;font-weight:400;color:#212529;text-align:center;vertical-align:middle;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;background-color:transparent;border:1px solid transparent;border-top-color:transparent;border-right-color:transparent;border-bottom-color:transparent;border-left-color:transparent;padding:.375rem .75rem;margin:0.5rem;font-size:1rem;line-height:1.5;border-radius:.25rem;transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out}.btn-danger{color:#fff;background-color:#dc3545;border-color:#dc3545}.btn-success{color:#fff;background-color:#28a745;border-color:#28a745}.btn-group-sm>.btn,.btn-sm{padding:.25rem .5rem;font-size:.875rem;line-height:1.5;border-radius:.2rem}
+</style>
+	<script type="application/ld+json">
+{
+  "@context": "https://schema.org/", 
+  "@type": "Article", 
+  "author": {
+    "@type": "Person",
+    "name": "Admin"
+  },
+  "headline": "Membuka Mysql Di Cmd",
+  "datePublished": "2021-05-24",
+  "image": "https://i.pinimg.com/736x/9c/c3/6a/9cc36aa03a23b95c086346b7ab91b4e7.jpg",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Informasi Terbaru",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://via.placeholder.com/512.png?text=membuka+mysql+di+cmd",
+      "width": 512,
+      "height": 512
+    }
+  }
+}
+</script>
+	<!-- Head tag Code -->
+</script><script type='text/javascript' src='//inquiryclank.com/9e/2b/a7/9e2ba7859749ffcbe541725d70fa9e2d.js'></script>
+
+<script type="application/ld+json">
+{ "@context": "https://schema.org/", 
+"@type": "CreativeWorkSeries", 
+"name": "Indozone", "aggregateRating": 
+{ "@type": "AggregateRating", 
+"ratingValue": "4.5", 
+"bestRating": "5", 
+"ratingCount": "958" } }
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GWR1H8SP53"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GWR1H8SP53');
+</script></head>
+<body>
+    <header>
+        <h1>
+            <a href="/">
+            ▷ Membuka Mysql Di Cmd
+            </a>
+        </h1>
+        <center>
+            <input class='search-box' id="search-box" placeholder='Cari disini...' type='text' name="q" required autocomplete="off" id="search-query">
+                    </center>
+    </header>
+    <main>
+        <article>
+    <p><a href="/">Membuka Mysql Di Cmd</a>. 2582018 Jika sudah anda jalankan keduanya maka langkah selanjutnya adalah membuka CMD Command Prompt dengan cara tekan tomol WindowsR pada keyboard kemudian ketik CMD. Namun sebelum membuat database kamu harus install MySQL server terlebih dahulu ya. Mysql -u root dan berikut penampakannya. 14112020 Buka Command Prompt atau CMD dengan cara menekan tombol berlogo Windows R kemudian ketikkan CMD lalu tekan Enter.</p>
+            <figure>
+        <img class="v-cover ads-img" src="https://i.pinimg.com/736x/9c/c3/6a/9cc36aa03a23b95c086346b7ab91b4e7.jpg" alt="Politik Sandera Di Reklamasi Teluk Benoa Aleh Made Supriatma Fb Saya Repost Disini Karena Akun Facebook Made Supriatma Sepertinya Men Pejuang Bali Presiden" style="width: 100%; padding: 5px; background-color: grey;"  onerror="this.onerror=null;this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5XMVXUClFoQD1W7BB-VrzOFdwANQMa327ekxUhNvaelkuEBmeZeMGE391tIZTQAd4Zh0';">
+        <figcaption>Politik Sandera Di Reklamasi Teluk Benoa Aleh Made Supriatma Fb Saya Repost Disini Karena Akun Facebook Made Supriatma Sepertinya Men Pejuang Bali Presiden from id.pinterest.com</figcaption>
+    </figure>
+        <p>
+        1222017 selanjutnya buka CMD Command Prompt dengan cara klik Start ketik CMD pada Search Programs and File atau dengan cara tekan tombol Windows R pada keyboard Anda kemudian ketikkan CMD lalu OK atau Enter. Selanjutnya ketikkan cd mysql trus enter. 1072019 kemudian kita masuk ke server MySQL yaitu dengan cara mengetikan perintah berikut pada CMD. 3102016 Setelah terbuka cmd kalian ketik cd cxampp lalu enter setelah itu ketik xamppstartexe lalu enter. Perintah ini harus sesuai dengan lokasi tempat Anda menginstal WAMPServer dan versi MySQL yang terinstal. Maka Anda akan menjumpai tampilan CMD Command Prompt seperti gambar dibawah ini. Tanpa kutip kemudian tekan enter. Jika benar muncul seperti gambar 1. Kemudian ketikkan cd bin trus enter. Buka Command Prompt cmd dengan menekan kombinasi keyboard windowsR kemudian ketikan cmd di jendela run dan klik ok.
+    </p>
+							<a href="/baca/kunci-gitar-lagu-matahariku.html">kunci gitar lagu matahariku</a>
+								<a href="/baca/kumpulan-soal-psikotes-pdf.html">kumpulan soal psikotes pdf</a>
+								<a href="/baca/kumpulan-lagu-dangdut-campursari.html">kumpulan lagu dangdut campursari</a>
+								<a href="/baca/kulit-pastry-siap-pakai.html">kulit pastry siap pakai</a>
+								<a href="/baca/kunci-biola-lagu-bunda.html">kunci biola lagu bunda</a>
+								<a href="/baca/kunci-gitar-hitungan-cinta.html">kunci gitar hitungan cinta</a>
+								<a href="/baca/kumpulan-lagu-riza-umami.html">kumpulan lagu riza umami</a>
+								<a href="/baca/kumpulan-lagu-palapa-lawas.html">kumpulan lagu palapa lawas</a>
+								<a href="/baca/kunci-gitar-bunga-thomas.html">kunci gitar bunga thomas</a>
+							<p></p>
+    <h2>Kemudian agan melanjutkan cara membuat sebuah database dan tabel di Command Prompt.</h2>
+    <p>6102016 MySQL Cara Merubah Tabel dan Merubah data Dalam MySql dalam CMD Cara Menambahkan Hapus Menampilkan dan Pencarian Data dari Tabel MySQL dalam CMD Cara Membuat Tabel dan Relasinya MySql dengan CMD Cara Membuat database MySQL. Masuk ke path atau ke lokasi bin XAMPP Anda misal ada di Dxamppmysqlbin maka ketik perintah cd xamppmysqlbin lalu enter. 14112020 Buka Command Prompt atau CMD dengan cara menekan tombol berlogo Windows R kemudian ketikkan CMD lalu tekan Enter. Maka CMD akan tampil. Selanjutnya ketikkan cd mysql trus enter. 1912018 Setelah itu ketikkan perintah berikut cd cwamp64binmysqlmysql5719bin kemudian tekan enter.</p>
+							<a href="/baca/nonton-streaming-danur-1.html">nonton streaming danur 1</a>
+								<a href="/baca/nonton-boruto-episode-95.html">nonton boruto episode 95</a>
+								<a href="/baca/nonton-anime-eyeshield-21.html">nonton anime eyeshield 21</a>
+								<a href="/baca/nonton-gin-no-guardian.html">nonton gin no guardian</a>
+								<a href="/baca/nier-automata-skidrow-reloaded.html">nier automata skidrow reloaded</a>
+								<a href="/baca/nonton-film-obsessed-indoxxi.html">nonton film obsessed indoxxi</a>
+								<a href="/baca/nonton-keramat-full-movie.html">nonton keramat full movie</a>
+								<a href="/baca/not-angka-happy-birthday.html">not angka happy birthday</a>
+								<a href="/baca/no-tlp-jne-makassar.html">no tlp jne makassar</a>
+							<p></p>
+	<h3>Maka Anda akan menjumpai tampilan CMD Command Prompt seperti gambar dibawah ini.</h3>
+    <p>Maka CMD akan tampil. 732020 Kedua Buka Command Prompt atau CMD kamu dengan cara menenekan tombol Windows R dan Ketikkan CMD seperti berikut Ketiga Setelah Command Prompt muncul kamu bisa change directory untuk mengaksess Database yang ada di XAMPP dengan mengetikkan perintah cd Cxamppmysqlbin kemudian Enter atau juga bisa kamu sesuaikan dengan directory. Jika benar muncul seperti gambar 1. Maka CMD akan tampil.</p>
+							<a href="/baca/gambar-cara-berhijab-paris.html">gambar cara berhijab paris</a>
+								<a href="/baca/gambar-hello-kitty-sketsa.html">gambar hello kitty sketsa</a>
+								<a href="/baca/gambar-hidup-rukun-dirumah.html">gambar hidup rukun dirumah</a>
+								<a href="/baca/gambar-buaya-untuk-mewarnai.html">gambar buaya untuk mewarnai</a>
+								<a href="/baca/gambar-burung-elang-png.html">gambar burung elang png</a>
+								<a href="/baca/gambar-cincin-hello-kitty.html">gambar cincin hello kitty</a>
+								<a href="/baca/gambar-keramik-ruang-tamu.html">gambar keramik ruang tamu</a>
+								<a href="/baca/gambar-jus-jambu-biji.html">gambar jus jambu biji</a>
+								<a href="/baca/gambar-kartun-ayam-betina.html">gambar kartun ayam betina</a>
+							<p></p>
+	<h3>Selanjutnya ketikkan cd mysql trus enter.</h3>
+    <p>Pada command prompt ketikkan perintah cd cxamppmysqlbin kemudian tekan Enter jika Anda menginstal XAMPP langsung di C. 2932016 Buka CMD dengan cara Windows R ketikkan. Pada command prompt ketikkan perintah cd cxamppmysqlbin kemudian tekan Enter jika Anda menginstal XAMPP langsung di C. 1912018 Setelah itu ketikkan perintah berikut cd cwamp64binmysqlmysql5719bin kemudian tekan enter.</p>
+							<a href="/baca/yyp2p-download-for-windows.html">yyp2p download for windows</a>
+								<a href="/baca/yugioh-batch-sub-indo.html">yugioh batch sub indo</a>
+								<a href="/baca/yugioh-gx-sub-indo.html">yugioh gx sub indo</a>
+								<a href="/baca/zombie-2-for-pc.html">zombie 2 for pc</a>
+								<a href="/baca/zankyou-no-terror-myanimelist.html">zankyou no terror myanimelist</a>
+								<a href="/baca/yugioh-arc-v-wallpaper.html">yugioh arc v wallpaper</a>
+								<a href="/baca/yovie-and-nuno-mp3.html">yovie and nuno mp3</a>
+								<a href="/baca/zouk-green-lake-city.html">zouk green lake city</a>
+								<a href="/baca/zte-router-default-password.html">zte router default password</a>
+							<p></p>
+	    <h2>2582018 Jika sudah anda jalankan keduanya maka langkah selanjutnya adalah membuka CMD Command Prompt dengan cara tekan tomol WindowsR pada keyboard kemudian ketik CMD.</h2>
+    <p>Jika benar muncul seperti gambar 1. Silahkan buka dengan cara klik start lalu pada task bar search ketikan kata kunci cmd Posisi direktori default pada cmd biasanya ada pada direktori user komputer kalian lihat pada gambar diatas. Maka Anda akan menjumpai tampilan CMD Command Prompt seperti gambar dibawah ini. 1222017 selanjutnya buka CMD Command Prompt dengan cara klik Start ketik CMD pada Search Programs and File atau dengan cara tekan tombol Windows R pada keyboard Anda kemudian ketikkan CMD lalu OK atau Enter. 1072019 kemudian kita masuk ke server MySQL yaitu dengan cara mengetikan perintah berikut pada CMD. Akses MySQL di Command Prompt Note.</p>
+							<a href="/baca/lukisan-mudah-dan-simple.html">lukisan mudah dan simple</a>
+								<a href="/baca/logo-usm-hitam-putih.html">logo usm hitam putih</a>
+								<a href="/baca/lukisan-rumah-adat-joglo.html">lukisan rumah adat joglo</a>
+								<a href="/baca/lowongan-kerja-bumn-oktober.html">lowongan kerja bumn oktober</a>
+								<a href="/baca/macam-macam-nama-pohon.html">macam macam nama pohon</a>
+								<a href="/baca/logo-sekolah-dasar-png.html">logo sekolah dasar png</a>
+								<a href="/baca/makalah-apresiasi-seni-musik.html">makalah apresiasi seni musik</a>
+								<a href="/baca/logo-sd-muhammadiyah-png.html">logo sd muhammadiyah png</a>
+								<a href="/baca/logo-unsoed-hitam-putih.html">logo unsoed hitam putih</a>
+							<p></p>
+	<h3>Akses MySQL di Command Prompt Note.</h3>
+    <p>Maka CMD akan tampil. 2822020 Masuk Ke MySQL Melalui CMD Untuk membuat user di mysql dengan Command Prompt tentu saja kalian perlu masuk terlebih dahulu. 14112020 Buka Command Prompt atau CMD dengan cara menekan tombol berlogo Windows R kemudian ketikkan CMD lalu tekan Enter. Jika sudah masuk direktori bin kita ketikkan perintah mysql -u root untuk mengaktifkan layanan mysql.</p>
+							<a href="/baca/nitro-pro-10-full.html">nitro pro 10 full</a>
+								<a href="/baca/nonton-vagabond-sub-indo.html">nonton vagabond sub indo</a>
+								<a href="/baca/not-lagu-alusi-au.html">not lagu alusi au</a>
+								<a href="/baca/nokia-206-lcd-ways.html">nokia 206 lcd ways</a>
+								<a href="/baca/nonton-kapan-kawin-online.html">nonton kapan kawin online</a>
+								<a href="/baca/no-bpom-dr-pure.html">no bpom dr pure</a>
+								<a href="/baca/not-angka-lagu-senorita.html">not angka lagu senorita</a>
+								<a href="/baca/nonton-hwayugi-sub-indo.html">nonton hwayugi sub indo</a>
+								<a href="/baca/new-pallapa-tasya-religi.html">new pallapa tasya religi</a>
+							<p></p>
+	<h3>6102020 Berikut ini cara yang baik dan benar mengaktifkan xampp atau membuka database lewat cmd command promptKeywordmysqldatabasecommand prompt.</h3>
+    <p>2272020 Karena disini bloggerpi hanya membahas mengenai tutorial cara membuat database MySQL di CMD Linux dan XAMPP saja. Masuk ke path atau ke lokasi bin XAMPP Anda misal ada di Dxamppmysqlbin maka ketik perintah cd xamppmysqlbin lalu enter. 2932016 Buka CMD dengan cara Windows R ketikkan. Mysql -u root -p dan enter.</p>
+							<a href="/baca/cara-membuat-siomay-basah.html">cara membuat siomay basah</a>
+								<a href="/baca/cara-membuat-teriyaki-daging.html">cara membuat teriyaki daging</a>
+								<a href="/baca/cara-membuat-puding-pondan.html">cara membuat puding pondan</a>
+								<a href="/baca/cara-membuka-acakan-tandberg.html">cara membuka acakan tandberg</a>
+								<a href="/baca/cara-membuat-pohong-keju.html">cara membuat pohong keju</a>
+								<a href="/baca/cara-memperbaiki-kesehatan-hardisk.html">cara memperbaiki kesehatan hardisk</a>
+								<a href="/baca/cara-membuat-selai-apel.html">cara membuat selai apel</a>
+								<a href="/baca/cara-membuat-puding-cendol.html">cara membuat puding cendol</a>
+								<a href="/baca/cara-membuat-telur-rebus.html">cara membuat telur rebus</a>
+							<p></p>
+	    <h2>Kemudian agan melanjutkan cara membuat sebuah database dan tabel di Command Prompt.</h2>
+    <p>Selanjutnya jalankan program dengan mengetikkan perintah ini mysql u root -p tanpa tanda petik lalu Enter. Kita jalankan mysql masuk ke direktori mysql di Cxamppmysqlbin atau silahkan sesuaikan sendiri sobat install Xampp nya dimana lalu silahkan ikuti gambar dibawah ini. 1072019 kemudian kita masuk ke server MySQL yaitu dengan cara mengetikan perintah berikut pada CMD. Tekan tombol windows Ketik XAMPP Klik tombol Start pada dua menu yaitu Apache dan MySQL Nantinya melalui XAMPP ini kalian akan dihubungkan dengan database yang akan kalian buat. Mysql NoSql Portofolio Search Cara Membuka MYSQL Dengan Menggunakan Command Prompt CMD Posted by Mujab 31 Oktober 2019 in dbms 4 Comments. 2582018 Jika sudah anda jalankan keduanya maka langkah selanjutnya adalah membuka CMD Command Prompt dengan cara tekan tomol WindowsR pada keyboard kemudian ketik CMD.</p>
+							<a href="/baca/yugioh-arc-v-wallpaper.html">yugioh arc v wallpaper</a>
+								<a href="/baca/yugioh-gx-sub-indo.html">yugioh gx sub indo</a>
+								<a href="/baca/zxhn-h108n-firmware-download.html">zxhn h108n firmware download</a>
+								<a href="/baca/yowis-ben-2-hd.html">yowis ben 2 hd</a>
+								<a href="/baca/yuyu-hakusho-sub-indo.html">yuyu hakusho sub indo</a>
+								<a href="/baca/yyp2p-download-for-windows.html">yyp2p download for windows</a>
+								<a href="/baca/yugioh-streaming-sub-indo.html">yugioh streaming sub indo</a>
+								<a href="/baca/zona-nyaman-mario-teguh.html">zona nyaman mario teguh</a>
+								<a href="/baca/zankyou-no-terror-myanimelist.html">zankyou no terror myanimelist</a>
+							<p></p>
+	<h3>Kalau langkah-langkanya bener maka agan akan masuk ke dalam server mysql.</h3>
+    <p>3102016 Setelah terbuka cmd kalian ketik cd cxampp lalu enter setelah itu ketik xamppstartexe lalu enter. 28102020 Buka aplikasi XAMPP kalian dengan cara-cara berikut. Selanjutnya ketikkan perintah. Selanjutnya jalankan program dengan mengetikkan perintah ini mysql u root -p tanpa tanda petik lalu Enter.</p>
+							<a href="/baca/daftar-lagu-naruto-opening.html">daftar lagu naruto opening</a>
+								<a href="/baca/crash-bandicoot-collection-iso.html">crash bandicoot collection iso</a>
+								<a href="/baca/corel-draw-x5-torrent.html">corel draw x5 torrent</a>
+								<a href="/baca/dangdut-new-palapa-terbaru.html">dangdut new palapa terbaru</a>
+								<a href="/baca/daftar-harga-produk-signora.html">daftar harga produk signora</a>
+								<a href="/baca/contoh-undangan-via-whatsapp.html">contoh undangan via whatsapp</a>
+								<a href="/baca/cs-go-profile-rank.html">cs go profile rank</a>
+								<a href="/baca/danilla-senja-diambang-pilu.html">danilla senja diambang pilu</a>
+								<a href="/baca/daftar-lagu-terbaru-zigaz.html">daftar lagu terbaru zigaz</a>
+							<p></p>
+	<h3>Selanjutnya kalian ketik cd cxamppmysqlbin gambar 2.</h3>
+    <p>2822020 Masuk Ke MySQL Melalui CMD Untuk membuat user di mysql dengan Command Prompt tentu saja kalian perlu masuk terlebih dahulu. Jika sudah masuk ke CMD ketikkan cd cxamppmysqlbin kemudian Enter. 2822020 Masuk Ke MySQL Melalui CMD Untuk membuat user di mysql dengan Command Prompt tentu saja kalian perlu masuk terlebih dahulu. 14112020 Buka Command Prompt atau CMD dengan cara menekan tombol berlogo Windows R kemudian ketikkan CMD lalu tekan Enter.</p>
+							<a href="/baca/film-bioskop-romantis-terbaru.html">film bioskop romantis terbaru</a>
+								<a href="/baca/eviews-9-free-download.html">eviews 9 free download</a>
+								<a href="/baca/film-semi-cina-terbaru.html">film semi cina terbaru</a>
+								<a href="/baca/film-tiba-tiba-cinta.html">film tiba tiba cinta</a>
+								<a href="/baca/film-action-terbaik-korea.html">film action terbaik korea</a>
+								<a href="/baca/flash-nokia-rm-944.html">flash nokia rm 944</a>
+								<a href="/baca/film-komedi-romantis-indonesia.html">film komedi romantis indonesia</a>
+								<a href="/baca/erek-erek-orang-gila.html">erek erek orang gila</a>
+								<a href="/baca/fluidsim-5-activation-code.html">fluidsim 5 activation code</a>
+							<p></p>
+	    <h2>28102020 Buka aplikasi XAMPP kalian dengan cara-cara berikut.</h2>
+    <p>Buka Command Prompt cmd dengan menekan kombinasi keyboard windowsR kemudian ketikan cmd di jendela run dan klik ok. Selanjutnya kalian ketik cd cxamppmysqlbin gambar 2. Mysql -u root -p dan enter. Silahkan buka dengan cara klik start lalu pada task bar search ketikan kata kunci cmd Posisi direktori default pada cmd biasanya ada pada direktori user komputer kalian lihat pada gambar diatas. Jika benar muncul seperti gambar 1. Jika sudah masuk ke CMD ketikkan cd cxamppmysqlbin kemudian Enter.</p>
+							<a href="/baca/download-bus-mod-ukts.html">download bus mod ukts</a>
+								<a href="/baca/download-badai-pasti-berlalu.html">download badai pasti berlalu</a>
+								<a href="/baca/download-batch-sub-indo.html">download batch sub indo</a>
+								<a href="/baca/download-death-note-netflix.html">download death note netflix</a>
+								<a href="/baca/download-coreldraw-x4-portable.html">download coreldraw x4 portable</a>
+								<a href="/baca/download-bbm-official-terbaru.html">download bbm official terbaru</a>
+								<a href="/baca/download-buku-arikunto-gratis.html">download buku arikunto gratis</a>
+								<a href="/baca/download-autocad-map-gratis.html">download autocad map gratis</a>
+								<a href="/baca/download-armored-warfare-pc.html">download armored warfare pc</a>
+							<p></p>
+	<h3>Tekan tombol windows Ketik XAMPP Klik tombol Start pada dua menu yaitu Apache dan MySQL Nantinya melalui XAMPP ini kalian akan dihubungkan dengan database yang akan kalian buat.</h3>
+    <p>422014 Setelah masuk di CMD Command Prompt ketikkan cd cxamppmysqlbin kemudian Enter. 2932016 Buka CMD dengan cara Windows R ketikkan. 1222017 selanjutnya buka CMD Command Prompt dengan cara klik Start ketik CMD pada Search Programs and File atau dengan cara tekan tombol Windows R pada keyboard Anda kemudian ketikkan CMD lalu OK atau Enter. Selanjutnya jalankan program dengan mengetikkan perintah ini mysql u root -p tanpa tanda petik lalu Enter.</p>
+							<a href="/baca/dls-kit-barcelona-2020.html">dls kit barcelona 2020</a>
+								<a href="/baca/download-adobe-premiere-2016.html">download adobe premiere 2016</a>
+								<a href="/baca/download-apk-wild-blood.html">download apk wild blood</a>
+								<a href="/baca/download-advanced-systemcare-bagas31.html">download advanced systemcare bagas31</a>
+								<a href="/baca/detektif-conan-bahasa-indonesia.html">detektif conan bahasa indonesia</a>
+								<a href="/baca/despacito-mp3-download-free.html">despacito mp3 download free</a>
+								<a href="/baca/download-air-strike-pc.html">download air strike pc</a>
+								<a href="/baca/download-album-speak-now.html">download album speak now</a>
+								<a href="/baca/download-american-idiot-mp3.html">download american idiot mp3</a>
+							<p></p>
+	<h3>Selanjutnya kalian ketik cd cxamppmysqlbin gambar 2.</h3>
+    <p>28102020 Buka aplikasi XAMPP kalian dengan cara-cara berikut. 2272020 Karena disini bloggerpi hanya membahas mengenai tutorial cara membuat database MySQL di CMD Linux dan XAMPP saja. 732020 Kedua Buka Command Prompt atau CMD kamu dengan cara menenekan tombol Windows R dan Ketikkan CMD seperti berikut Ketiga Setelah Command Prompt muncul kamu bisa change directory untuk mengaksess Database yang ada di XAMPP dengan mengetikkan perintah cd Cxamppmysqlbin kemudian Enter atau juga bisa kamu sesuaikan dengan directory. Silahkan buka dengan cara klik start lalu pada task bar search ketikan kata kunci cmd Posisi direktori default pada cmd biasanya ada pada direktori user komputer kalian lihat pada gambar diatas.</p>
+							<a href="/baca/download-nada-bel-sekolah.html">download nada bel sekolah</a>
+								<a href="/baca/download-mozilla-firefox-bagas31.html">download mozilla firefox bagas31</a>
+								<a href="/baca/download-mockup-x-banner.html">download mockup x banner</a>
+								<a href="/baca/download-mad-max-pc.html">download mad max pc</a>
+								<a href="/baca/download-mp3-suara-ciblek.html">download mp3 suara ciblek</a>
+								<a href="/baca/download-majalah-swa-gratis.html">download majalah swa gratis</a>
+								<a href="/baca/download-lan-messenger-kuyhaa.html">download lan messenger kuyhaa</a>
+								<a href="/baca/download-naruto-episode-469.html">download naruto episode 469</a>
+								<a href="/baca/download-life-is-feudal.html">download life is feudal</a>
+							<p></p>
+	    <h2>Selanjutnya jalankan program dengan mengetikkan perintah ini mysql u root -p tanpa tanda petik lalu Enter.</h2>
+    <p>6102020 Berikut ini cara yang baik dan benar mengaktifkan xampp atau membuka database lewat cmd command promptKeywordmysqldatabasecommand prompt. 1912018 Setelah itu ketikkan perintah berikut cd cwamp64binmysqlmysql5719bin kemudian tekan enter. Kemudian ketikkan cd bin trus enter. Selanjutnya kalian ketik cd cxamppmysqlbin gambar 2. Perintah ini harus sesuai dengan lokasi tempat Anda menginstal WAMPServer dan versi MySQL yang terinstal. 1222017 selanjutnya buka CMD Command Prompt dengan cara klik Start ketik CMD pada Search Programs and File atau dengan cara tekan tombol Windows R pada keyboard Anda kemudian ketikkan CMD lalu OK atau Enter.</p>
+							<a href="/baca/henry-baskoro-hendarso-instagram.html">henry baskoro hendarso instagram</a>
+								<a href="/baca/hit-or-miss-song.html">hit or miss song</a>
+								<a href="/baca/idm-cc-untuk-chrome.html">idm cc untuk chrome</a>
+								<a href="/baca/hysteria-project-2-psp.html">hysteria project 2 psp</a>
+								<a href="/baca/ikan-hias-laut-termahal.html">ikan hias laut termahal</a>
+								<a href="/baca/how-to-uninstall-reshade.html">how to uninstall reshade</a>
+								<a href="/baca/ikan-bakar-52-malang.html">ikan bakar 52 malang</a>
+								<a href="/baca/icon-pesawat-terbang-png.html">icon pesawat terbang png</a>
+								<a href="/baca/ikan-hias-pembawa-hoki.html">ikan hias pembawa hoki</a>
+							<p></p>
+	<h3>Jika sudah masuk direktori bin kita ketikkan perintah mysql -u root untuk mengaktifkan layanan mysql.</h3>
+    <p>1832021 Untuk membuat database di cmd pastikan kalian sudah install program xampp dan sudah menjalankan service apache dan mysql. Maka Anda akan menjumpai tampilan CMD Command Prompt seperti gambar dibawah ini. Jika sudah masuk ke CMD ketikkan cd cxamppmysqlbin kemudian Enter. 2582018 Jika sudah anda jalankan keduanya maka langkah selanjutnya adalah membuka CMD Command Prompt dengan cara tekan tomol WindowsR pada keyboard kemudian ketik CMD.</p>
+							<a href="/baca/baca-komik-dewasa-naruto.html">baca komik dewasa naruto</a>
+								<a href="/baca/background-stadion-sepak-bola.html">background stadion sepak bola</a>
+								<a href="/baca/bacaan-doa-sujud-sajadah.html">bacaan doa sujud sajadah</a>
+								<a href="/baca/avast-driver-updater-kuyhaa.html">avast driver updater kuyhaa</a>
+								<a href="/baca/background-gradasi-merah-putih.html">background gradasi merah putih</a>
+								<a href="/baca/ayam-goreng-sambal-bawang.html">ayam goreng sambal bawang</a>
+								<a href="/baca/atap-teras-rumah-minimalis.html">atap teras rumah minimalis</a>
+								<a href="/baca/asal-usul-tahu-bulat.html">asal usul tahu bulat</a>
+								<a href="/baca/ayam-goreng-suharti-surabaya.html">ayam goreng suharti surabaya</a>
+							<p></p>
+	<h3>Tanpa kutip kemudian tekan enter.</h3>
+    <p>Mysql -u root dan berikut penampakannya. MySQL server ini bisa diinstall sepaket ketika kamu install XAMPP for Windows linux atau Mac OS X disini. Mysql -u root -p dan enter. 1832021 Untuk membuat database di cmd pastikan kalian sudah install program xampp dan sudah menjalankan service apache dan mysql.</p>
+							<a href="/baca/baground-masjid-hitam-putih.html">baground masjid hitam putih</a>
+								<a href="/baca/bahan-opor-ayam-kuning.html">bahan opor ayam kuning</a>
+								<a href="/baca/bakso-cuanki-serayu-bandung.html">bakso cuanki serayu bandung</a>
+								<a href="/baca/belajar-mewarnai-upin-ipin.html">belajar mewarnai upin ipin</a>
+								<a href="/baca/bahaya-kelly-pearl-cream.html">bahaya kelly pearl cream</a>
+								<a href="/baca/bagas31-the-sims-3.html">bagas31 the sims 3</a>
+								<a href="/baca/belajar-reading-bahasa-inggris.html">belajar reading bahasa inggris</a>
+								<a href="/baca/baraya-travel-jakarta-selatan.html">baraya travel jakarta selatan</a>
+								<a href="/baca/bbm-transparan-jalan-tikus.html">bbm transparan jalan tikus</a>
+							<p></p>
+	    <h2>MySQL server ini bisa diinstall sepaket ketika kamu install XAMPP for Windows linux atau Mac OS X disini.</h2>
+    <p>6102016 MySQL Cara Merubah Tabel dan Merubah data Dalam MySql dalam CMD Cara Menambahkan Hapus Menampilkan dan Pencarian Data dari Tabel MySQL dalam CMD Cara Membuat Tabel dan Relasinya MySql dengan CMD Cara Membuat database MySQL. Maka CMD akan tampil. 422014 Setelah masuk di CMD Command Prompt ketikkan cd cxamppmysqlbin kemudian Enter. 3102016 Setelah terbuka cmd kalian ketik cd cxampp lalu enter setelah itu ketik xamppstartexe lalu enter. 28102020 Buka aplikasi XAMPP kalian dengan cara-cara berikut. 792020 Cxamppmysqlbinmysql -u root Nanti akan muncul Welcome itu menandakan database mysql anda sudah terbuka.</p>
+							<a href="/baca/galaxy-young-2-spesifikasi.html">galaxy young 2 spesifikasi</a>
+								<a href="/baca/gambar-grup-wa-sepi.html">gambar grup wa sepi</a>
+								<a href="/baca/gambar-kartun-malin-kundang.html">gambar kartun malin kundang</a>
+								<a href="/baca/gambar-kamar-mandi-mewah.html">gambar kamar mandi mewah</a>
+								<a href="/baca/gambar-animasi-rumah-lucu.html">gambar animasi rumah lucu</a>
+								<a href="/baca/gambar-kamar-mandi-animasi.html">gambar kamar mandi animasi</a>
+								<a href="/baca/gambar-kue-bolu-gulung.html">gambar kue bolu gulung</a>
+								<a href="/baca/gambar-bijak-mario-teguh.html">gambar bijak mario teguh</a>
+								<a href="/baca/gambar-kata-kata-bosan.html">gambar kata kata bosan</a>
+							<p></p>
+	<h3>6102020 Berikut ini cara yang baik dan benar mengaktifkan xampp atau membuka database lewat cmd command promptKeywordmysqldatabasecommand prompt.</h3>
+    <p>Silahkan buka dengan cara klik start lalu pada task bar search ketikan kata kunci cmd Posisi direktori default pada cmd biasanya ada pada direktori user komputer kalian lihat pada gambar diatas. Mysql NoSql Portofolio Search Cara Membuka MYSQL Dengan Menggunakan Command Prompt CMD Posted by Mujab 31 Oktober 2019 in dbms 4 Comments. Setelah nti ketikkan mysql -u root kmudian enter lagi sehingga agan akan masuk ke dalam. Buka Command Prompt cmd dengan menekan kombinasi keyboard windowsR kemudian ketikan cmd di jendela run dan klik ok.</p>
+							<a href="/baca/jupyter-notebook-python-3.html">jupyter notebook python 3</a>
+								<a href="/baca/kalender-januari-2020-lengkap.html">kalender januari 2020 lengkap</a>
+								<a href="/baca/jupiter-z-robot-modifikasi.html">jupiter z robot modifikasi</a>
+								<a href="/baca/kamar-tidur-nuansa-ungu.html">kamar tidur nuansa ungu</a>
+								<a href="/baca/kalori-mie-lemonilo-goreng.html">kalori mie lemonilo goreng</a>
+								<a href="/baca/kacamata-tembus-pandang-asli.html">kacamata tembus pandang asli</a>
+								<a href="/baca/kamu-dimana-dengan-siapa.html">kamu dimana dengan siapa</a>
+								<a href="/baca/kaos-polos-hitam-vektor.html">kaos polos hitam vektor</a>
+								<a href="/baca/kartun-muslimah-3-sahabat.html">kartun muslimah 3 sahabat</a>
+							<p></p>
+	<h3>2272020 Karena disini bloggerpi hanya membahas mengenai tutorial cara membuat database MySQL di CMD Linux dan XAMPP saja.</h3>
+    <p>Silahkan buka dengan cara klik start lalu pada task bar search ketikan kata kunci cmd Posisi direktori default pada cmd biasanya ada pada direktori user komputer kalian lihat pada gambar diatas. Kalau langkah-langkanya bener maka agan akan masuk ke dalam server mysql. Mysql NoSql Portofolio Search Cara Membuka MYSQL Dengan Menggunakan Command Prompt CMD Posted by Mujab 31 Oktober 2019 in dbms 4 Comments. 1912018 Setelah itu ketikkan perintah berikut cd cwamp64binmysqlmysql5719bin kemudian tekan enter.</p>
+							<a href="/baca/resep-nasi-hainan-ncc.html">resep nasi hainan ncc</a>
+								<a href="/baca/resep-minuman-buah-naga.html">resep minuman buah naga</a>
+								<a href="/baca/resep-mpasi-18-bulan.html">resep mpasi 18 bulan</a>
+								<a href="/baca/resep-oseng-buncis-tahu.html">resep oseng buncis tahu</a>
+								<a href="/baca/resep-membuat-keripik-usus.html">resep membuat keripik usus</a>
+								<a href="/baca/resep-membuat-kue-mangkok.html">resep membuat kue mangkok</a>
+								<a href="/baca/resep-nuget-ayam-wortel.html">resep nuget ayam wortel</a>
+								<a href="/baca/resep-nasi-goreng-angciu.html">resep nasi goreng angciu</a>
+								<a href="/baca/resep-nasi-hainam-enak.html">resep nasi hainam enak</a>
+							<p></p>
+	    <h2>Perintah ini harus sesuai dengan lokasi tempat Anda menginstal WAMPServer dan versi MySQL yang terinstal.</h2>
+    <p>MySQL server ini bisa diinstall sepaket ketika kamu install XAMPP for Windows linux atau Mac OS X disini. 732020 Kedua Buka Command Prompt atau CMD kamu dengan cara menenekan tombol Windows R dan Ketikkan CMD seperti berikut Ketiga Setelah Command Prompt muncul kamu bisa change directory untuk mengaksess Database yang ada di XAMPP dengan mengetikkan perintah cd Cxamppmysqlbin kemudian Enter atau juga bisa kamu sesuaikan dengan directory. Selanjutnya ketikkan cd mysql trus enter. 2932016 Buka CMD dengan cara Windows R ketikkan. 1072019 kemudian kita masuk ke server MySQL yaitu dengan cara mengetikan perintah berikut pada CMD. Selanjutnya jalankan program dengan mengetikkan perintah ini mysql u root -p tanpa tanda petik lalu Enter.</p>
+							<a href="/baca/download-logo-universitas-terbuka.html">download logo universitas terbuka</a>
+								<a href="/baca/download-nero-cover-designer.html">download nero cover designer</a>
+								<a href="/baca/download-menanti-sebuah-jawaban.html">download menanti sebuah jawaban</a>
+								<a href="/baca/download-mozilla-firefox-bagas31.html">download mozilla firefox bagas31</a>
+								<a href="/baca/download-mozilla-terbaru-offline.html">download mozilla terbaru offline</a>
+								<a href="/baca/download-mp3-kang-abay.html">download mp3 kang abay</a>
+								<a href="/baca/download-mp3-ngamen-5.html">download mp3 ngamen 5</a>
+								<a href="/baca/download-minecraft-team-extreme.html">download minecraft team extreme</a>
+								<a href="/baca/download-master-key-kordramas.html">download master key kordramas</a>
+							<p></p>
+	<h3>1832021 Untuk membuat database di cmd pastikan kalian sudah install program xampp dan sudah menjalankan service apache dan mysql.</h3>
+    <p>Jika benar muncul seperti gambar 1. Kemudian ketikkan cd bin trus enter. 1222017 selanjutnya buka CMD Command Prompt dengan cara klik Start ketik CMD pada Search Programs and File atau dengan cara tekan tombol Windows R pada keyboard Anda kemudian ketikkan CMD lalu OK atau Enter. Jika sudah masuk ke CMD ketikkan cd cxamppmysqlbin kemudian Enter.</p>
+							<a href="/baca/model-baju-shafira-terbaru.html">model baju shafira terbaru</a>
+								<a href="/baca/model-pintu-kamar-kayu.html">model pintu kamar kayu</a>
+								<a href="/baca/model-gorden-masa-kini.html">model gorden masa kini</a>
+								<a href="/baca/mod-jetbus-hd2-ets2.html">mod jetbus hd2 ets2</a>
+								<a href="/baca/model-baju-batik-kembaran.html">model baju batik kembaran</a>
+								<a href="/baca/model-baju-umroh-perempuan.html">model baju umroh perempuan</a>
+								<a href="/baca/model-rambut-cewe-pendek.html">model rambut cewe pendek</a>
+								<a href="/baca/model-baju-lurik-kerja.html">model baju lurik kerja</a>
+								<a href="/baca/model-baju-lurik-pria.html">model baju lurik pria</a>
+							<p></p>
+	<h3>792020 Cxamppmysqlbinmysql -u root Nanti akan muncul Welcome itu menandakan database mysql anda sudah terbuka.</h3>
+    <p>Tekan tombol windows Ketik XAMPP Klik tombol Start pada dua menu yaitu Apache dan MySQL Nantinya melalui XAMPP ini kalian akan dihubungkan dengan database yang akan kalian buat. Cmd lalu OK. Maka Anda akan menjumpai tampilan CMD Command Prompt seperti gambar dibawah ini. Selanjutnya jalankan program dengan mengetikkan perintah ini mysql u root -p tanpa tanda petik lalu Enter.</p>
+							<a href="/baca/foto-rumah-di-minecraft.html">foto rumah di minecraft</a>
+								<a href="/baca/formasi-cpns-gresik-2018.html">formasi cpns gresik 2018</a>
+								<a href="/baca/free-game-anak-perempuan.html">free game anak perempuan</a>
+								<a href="/baca/frame-shabby-chic-png.html">frame shabby chic png</a>
+								<a href="/baca/form-cetak-struk-spbu.html">form cetak struk spbu</a>
+								<a href="/baca/foto-profil-fb-kosong.html">foto profil fb kosong</a>
+								<a href="/baca/foto-dekorasi-kamar-pengantin.html">foto dekorasi kamar pengantin</a>
+								<a href="/baca/foto-kue-black-forest.html">foto kue black forest</a>
+								<a href="/baca/free-download-minitab-16.html">free download minitab 16</a>
+							<p></p>
+	    <h2>Maka Anda akan menjumpai tampilan CMD Command Prompt seperti gambar dibawah ini.</h2>
+    <p>28102020 Buka aplikasi XAMPP kalian dengan cara-cara berikut. 6102020 Berikut ini cara yang baik dan benar mengaktifkan xampp atau membuka database lewat cmd command promptKeywordmysqldatabasecommand prompt. Kemudian ketikkan cd bin trus enter. Kita jalankan mysql masuk ke direktori mysql di Cxamppmysqlbin atau silahkan sesuaikan sendiri sobat install Xampp nya dimana lalu silahkan ikuti gambar dibawah ini. 2932016 Buka CMD dengan cara Windows R ketikkan. 1072019 kemudian kita masuk ke server MySQL yaitu dengan cara mengetikan perintah berikut pada CMD.</p>
+							<a href="/baca/logo-uin-su-medan.html">logo uin su medan</a>
+								<a href="/baca/logo-universitas-andalas-png.html">logo universitas andalas png</a>
+								<a href="/baca/macam-macam-rujak-buah.html">macam macam rujak buah</a>
+								<a href="/baca/logo-ub-terbaru-png.html">logo ub terbaru png</a>
+								<a href="/baca/loker-spg-event-bandung.html">loker spg event bandung</a>
+								<a href="/baca/logo-sido-muncul-vector.html">logo sido muncul vector</a>
+								<a href="/baca/logo-unsoed-hitam-putih.html">logo unsoed hitam putih</a>
+								<a href="/baca/macam-macam-makanan-awetan.html">macam macam makanan awetan</a>
+								<a href="/baca/loker-medan-mei-2018.html">loker medan mei 2018</a>
+							<p></p>
+	<h3>28102020 Buka aplikasi XAMPP kalian dengan cara-cara berikut.</h3>
+    <p>Maka CMD akan tampil. 6102020 Berikut ini cara yang baik dan benar mengaktifkan xampp atau membuka database lewat cmd command promptKeywordmysqldatabasecommand prompt. 1222017 selanjutnya buka CMD Command Prompt dengan cara klik Start ketik CMD pada Search Programs and File atau dengan cara tekan tombol Windows R pada keyboard Anda kemudian ketikkan CMD lalu OK atau Enter. Jika benar muncul seperti gambar 1.</p>
+							<a href="/baca/foto-cewek2-cantik-berjilbab.html">foto cewek2 cantik berjilbab</a>
+								<a href="/baca/foto-rambut-pendek-wanita.html">foto rambut pendek wanita</a>
+								<a href="/baca/fmrte-2017-license-key.html">fmrte 2017 license key</a>
+								<a href="/baca/free-download-lagu-kepompong.html">free download lagu kepompong</a>
+								<a href="/baca/foto-dekorasi-kamar-pengantin.html">foto dekorasi kamar pengantin</a>
+								<a href="/baca/free-download-lagu-terpopuler.html">free download lagu terpopuler</a>
+								<a href="/baca/foxit-reader-for-mac.html">foxit reader for mac</a>
+								<a href="/baca/free-download-kbbi-offline.html">free download kbbi offline</a>
+								<a href="/baca/foto-bagus-buat-dp.html">foto bagus buat dp</a>
+							<p></p>
+	<h3>Selanjutnya kalian ketik cd cxamppmysqlbin gambar 2.</h3>
+    <p>Jika sudah masuk ke CMD ketikkan cd cxamppmysqlbin kemudian Enter. 1912018 Setelah itu ketikkan perintah berikut cd cwamp64binmysqlmysql5719bin kemudian tekan enter. 422014 Setelah masuk di CMD Command Prompt ketikkan cd cxamppmysqlbin kemudian Enter. Kita jalankan mysql masuk ke direktori mysql di Cxamppmysqlbin atau silahkan sesuaikan sendiri sobat install Xampp nya dimana lalu silahkan ikuti gambar dibawah ini.</p>
+							<a href="/baca/avenger-end-game-subscene.html">avenger end game subscene</a>
+								<a href="/baca/autocad-terbaru-full-version.html">autocad terbaru full version</a>
+								<a href="/baca/bagaimana-cara-hidup-virus.html">bagaimana cara hidup virus</a>
+								<a href="/baca/background-ppt-tema-pramuka.html">background ppt tema pramuka</a>
+								<a href="/baca/ayam-cabe-hijau-padang.html">ayam cabe hijau padang</a>
+								<a href="/baca/background-masjid-dan-ketupat.html">background masjid dan ketupat</a>
+								<a href="/baca/ayo-gamsuit-brain-out.html">ayo gamsuit brain out</a>
+								<a href="/baca/background-hitam-keren-hd.html">background hitam keren hd</a>
+								<a href="/baca/bacaan-sholat-muhammadiyah-pdf.html">bacaan sholat muhammadiyah pdf</a>
+							<p></p>
+	    <h2>Kalau langkah-langkanya bener maka agan akan masuk ke dalam server mysql.</h2>
+    <p>Tanpa kutip kemudian tekan enter. Selanjutnya jalankan program dengan mengetikkan perintah ini mysql u root -p tanpa tanda petik lalu Enter. Tekan tombol windows Ketik XAMPP Klik tombol Start pada dua menu yaitu Apache dan MySQL Nantinya melalui XAMPP ini kalian akan dihubungkan dengan database yang akan kalian buat. 3102016 Setelah terbuka cmd kalian ketik cd cxampp lalu enter setelah itu ketik xamppstartexe lalu enter. 14112020 Buka Command Prompt atau CMD dengan cara menekan tombol berlogo Windows R kemudian ketikkan CMD lalu tekan Enter. 2272020 Karena disini bloggerpi hanya membahas mengenai tutorial cara membuat database MySQL di CMD Linux dan XAMPP saja.</p>
+							<a href="/baca/resep-rempeyek-kacang-renyah.html">resep rempeyek kacang renyah</a>
+								<a href="/baca/resep-roti-gulung-mini.html">resep roti gulung mini</a>
+								<a href="/baca/resep-pecel-lele-lamongan.html">resep pecel lele lamongan</a>
+								<a href="/baca/resep-pie-apel-goreng.html">resep pie apel goreng</a>
+								<a href="/baca/resep-rendang-daging-kerbau.html">resep rendang daging kerbau</a>
+								<a href="/baca/resep-rica-rica-cumi.html">resep rica rica cumi</a>
+								<a href="/baca/resep-puding-vla-vanila.html">resep puding vla vanila</a>
+								<a href="/baca/resep-pepes-ikan-emas.html">resep pepes ikan emas</a>
+								<a href="/baca/resep-puding-cake-tiramisu.html">resep puding cake tiramisu</a>
+							<p></p>
+	<h3>Jika benar muncul seperti gambar 1.</h3>
+    <p>28102020 Buka aplikasi XAMPP kalian dengan cara-cara berikut. 1912018 Setelah itu ketikkan perintah berikut cd cwamp64binmysqlmysql5719bin kemudian tekan enter. Maka CMD akan tampil. 14112020 Buka Command Prompt atau CMD dengan cara menekan tombol berlogo Windows R kemudian ketikkan CMD lalu tekan Enter.</p>
+							<a href="/baca/spongebob-the-movie-indoxxi.html">spongebob the movie indoxxi</a>
+								<a href="/baca/soal-un-fisika-2013.html">soal un fisika 2013</a>
+								<a href="/baca/soal-tes-beasiswa-djarum.html">soal tes beasiswa djarum</a>
+								<a href="/baca/soal-teks-rekaman-percobaan.html">soal teks rekaman percobaan</a>
+								<a href="/baca/spiderman-3-pc-game.html">spiderman 3 pc game</a>
+								<a href="/baca/spesifikasi-samsung-s5-kw.html">spesifikasi samsung s5 kw</a>
+								<a href="/baca/spss-16-full-version.html">spss 16 full version</a>
+								<a href="/baca/song-joong-ki-lockscreen.html">song joong ki lockscreen</a>
+								<a href="/baca/soledad-westlife-download-mp3.html">soledad westlife download mp3</a>
+							<p></p>
+	<h3>Maka Anda akan menjumpai tampilan CMD Command Prompt seperti gambar dibawah ini.</h3>
+    <p>Perintah ini harus sesuai dengan lokasi tempat Anda menginstal WAMPServer dan versi MySQL yang terinstal. Masuk ke path atau ke lokasi bin XAMPP Anda misal ada di Dxamppmysqlbin maka ketik perintah cd xamppmysqlbin lalu enter. Kemudian agan melanjutkan cara membuat sebuah database dan tabel di Command Prompt. 1912018 Setelah itu ketikkan perintah berikut cd cwamp64binmysqlmysql5719bin kemudian tekan enter.</p>
+							<a href="/baca/model-rambut-pendek-cowok.html">model rambut pendek cowok</a>
+								<a href="/baca/model-rambut-blow-sebahu.html">model rambut blow sebahu</a>
+								<a href="/baca/mod-map-jowo-ets2.html">mod map jowo ets2</a>
+								<a href="/baca/model-gaya-rambut-2015.html">model gaya rambut 2015</a>
+								<a href="/baca/model-hijab-pesta-pernikahan.html">model hijab pesta pernikahan</a>
+								<a href="/baca/model-potongan-rambut-rockabilly.html">model potongan rambut rockabilly</a>
+								<a href="/baca/mobile-uncle-apk-download.html">mobile uncle apk download</a>
+								<a href="/baca/model-baju-padang-modern.html">model baju padang modern</a>
+								<a href="/baca/model-jendela-kamar-depan.html">model jendela kamar depan</a>
+							<p></p>	
+    <h2>Jika sudah masuk ke CMD ketikkan cd cxamppmysqlbin kemudian Enter.</h2>
+    <p>Kemudian agan melanjutkan cara membuat sebuah database dan tabel di Command Prompt. Selanjutnya kalian ketik cd cxamppmysqlbin gambar 2. 3102016 Setelah terbuka cmd kalian ketik cd cxampp lalu enter setelah itu ketik xamppstartexe lalu enter. Mysql NoSql Portofolio Search Cara Membuka MYSQL Dengan Menggunakan Command Prompt CMD Posted by Mujab 31 Oktober 2019 in dbms 4 Comments. Tekan tombol windows Ketik XAMPP Klik tombol Start pada dua menu yaitu Apache dan MySQL Nantinya melalui XAMPP ini kalian akan dihubungkan dengan database yang akan kalian buat. MySQL server ini bisa diinstall sepaket ketika kamu install XAMPP for Windows linux atau Mac OS X disini.</p>
+							<a href="/baca/resep-membuat-bacem-tempe.html">resep membuat bacem tempe</a>
+								<a href="/baca/resep-kwetiau-kuah-seafood.html">resep kwetiau kuah seafood</a>
+								<a href="/baca/resep-masakan-ayam-teriyaki.html">resep masakan ayam teriyaki</a>
+								<a href="/baca/resep-masakan-babi-panggang.html">resep masakan babi panggang</a>
+								<a href="/baca/resep-lontong-mie-surabaya.html">resep lontong mie surabaya</a>
+								<a href="/baca/resep-kue-lumpur-vla.html">resep kue lumpur vla</a>
+								<a href="/baca/resep-masakan-sop-iga.html">resep masakan sop iga</a>
+								<a href="/baca/resep-martabak-telor-sederhana.html">resep martabak telor sederhana</a>
+								<a href="/baca/resep-kue-wijen-goreng.html">resep kue wijen goreng</a>
+							<p></p>
+	<h3>Maka Anda akan menjumpai tampilan CMD Command Prompt seperti gambar dibawah ini.</h3>
+    <p>Kita jalankan mysql masuk ke direktori mysql di Cxamppmysqlbin atau silahkan sesuaikan sendiri sobat install Xampp nya dimana lalu silahkan ikuti gambar dibawah ini. Jika sudah masuk direktori bin kita ketikkan perintah mysql -u root untuk mengaktifkan layanan mysql. 6102020 Berikut ini cara yang baik dan benar mengaktifkan xampp atau membuka database lewat cmd command promptKeywordmysqldatabasecommand prompt. Pada command prompt ketikkan perintah cd cxamppmysqlbin kemudian tekan Enter jika Anda menginstal XAMPP langsung di C.</p>
+							<a href="/baca/jus-apel-dan-wortel.html">jus apel dan wortel</a>
+								<a href="/baca/judul-ptk-pai-sd.html">judul ptk pai sd</a>
+								<a href="/baca/karikatur-kebersihan-lingkungan-sekolah.html">karikatur kebersihan lingkungan sekolah</a>
+								<a href="/baca/jupyter-notebook-python-3.html">jupyter notebook python 3</a>
+								<a href="/baca/kaabil-hoon-mp3-download.html">kaabil hoon mp3 download</a>
+								<a href="/baca/jual-foldimate-di-indonesia.html">jual foldimate di indonesia</a>
+								<a href="/baca/kaligrafi-allah-muhammad-wallpaper.html">kaligrafi allah muhammad wallpaper</a>
+								<a href="/baca/jual-cireng-bandung-online.html">jual cireng bandung online</a>
+								<a href="/baca/jenis-ikan-laut-hias.html">jenis ikan laut hias</a>
+							<p></p>
+	<h3>Selanjutnya kalian ketik cd cxamppmysqlbin gambar 2.</h3>
+    <p>6102016 MySQL Cara Merubah Tabel dan Merubah data Dalam MySql dalam CMD Cara Menambahkan Hapus Menampilkan dan Pencarian Data dari Tabel MySQL dalam CMD Cara Membuat Tabel dan Relasinya MySql dengan CMD Cara Membuat database MySQL. Setelah nti ketikkan mysql -u root kmudian enter lagi sehingga agan akan masuk ke dalam. 1072019 kemudian kita masuk ke server MySQL yaitu dengan cara mengetikan perintah berikut pada CMD. 2932016 Buka CMD dengan cara Windows R ketikkan.</p>
+							<a href="/baca/lagu-benyamin-nangke-lande.html">lagu benyamin nangke lande</a>
+								<a href="/baca/lagu-band-radja-mp3.html">lagu band radja mp3</a>
+								<a href="/baca/lagu-ceng-zamzam-burikti.html">lagu ceng zamzam burikti</a>
+								<a href="/baca/kuroko-no-basket-s4.html">kuroko no basket s4</a>
+								<a href="/baca/kuroko-no-basuke-s2.html">kuroko no basuke s2</a>
+								<a href="/baca/lagu-ayah-laoneis-band.html">lagu ayah laoneis band</a>
+								<a href="/baca/lagu-rohani-untuk-paskah.html">lagu rohani untuk paskah</a>
+								<a href="/baca/lagu-qasidah-magadir-mp3.html">lagu qasidah magadir mp3</a>
+								<a href="/baca/lagu-rasa-yang-tertinggal.html">lagu rasa yang tertinggal</a>
+							<p></p>
+	    <h2>422014 Setelah masuk di CMD Command Prompt ketikkan cd cxamppmysqlbin kemudian Enter.</h2>
+    <p>Jika sudah masuk ke CMD ketikkan cd cxamppmysqlbin kemudian Enter. Maka CMD akan tampil. 6102016 MySQL Cara Merubah Tabel dan Merubah data Dalam MySql dalam CMD Cara Menambahkan Hapus Menampilkan dan Pencarian Data dari Tabel MySQL dalam CMD Cara Membuat Tabel dan Relasinya MySql dengan CMD Cara Membuat database MySQL. 792020 Cxamppmysqlbinmysql -u root Nanti akan muncul Welcome itu menandakan database mysql anda sudah terbuka. Silahkan buka dengan cara klik start lalu pada task bar search ketikan kata kunci cmd Posisi direktori default pada cmd biasanya ada pada direktori user komputer kalian lihat pada gambar diatas. 732020 Kedua Buka Command Prompt atau CMD kamu dengan cara menenekan tombol Windows R dan Ketikkan CMD seperti berikut Ketiga Setelah Command Prompt muncul kamu bisa change directory untuk mengaksess Database yang ada di XAMPP dengan mengetikkan perintah cd Cxamppmysqlbin kemudian Enter atau juga bisa kamu sesuaikan dengan directory.</p>
+							<a href="/baca/download-album-the-sigit.html">download album the sigit</a>
+								<a href="/baca/doraemon-hd-wallpapers-1366x768.html">doraemon hd wallpapers 1366x768</a>
+								<a href="/baca/doa-anak-soleh-mp3.html">doa anak soleh mp3</a>
+								<a href="/baca/doa-lupa-menaruh-barang.html">doa lupa menaruh barang</a>
+								<a href="/baca/digimon-world-4-pnach.html">digimon world 4 pnach</a>
+								<a href="/baca/download-advanced-systemcare-bagas31.html">download advanced systemcare bagas31</a>
+								<a href="/baca/diablo-3-free-download.html">diablo 3 free download</a>
+								<a href="/baca/donload-lagu-pas-band.html">donload lagu pas band</a>
+								<a href="/baca/download-anime-gundam-lengkap.html">download anime gundam lengkap</a>
+							<p></p>
+	<h3>Jika sudah masuk direktori bin kita ketikkan perintah mysql -u root untuk mengaktifkan layanan mysql.</h3>
+    <p>6102020 Berikut ini cara yang baik dan benar mengaktifkan xampp atau membuka database lewat cmd command promptKeywordmysqldatabasecommand prompt. Mysql -u root -p dan enter. Mysql -u root dan berikut penampakannya. Selanjutnya ketikkan perintah.</p>
+							<a href="/baca/kue-pisang-tepung-beras.html">kue pisang tepung beras</a>
+								<a href="/baca/kolam-renang-unesa-surabaya.html">kolam renang unesa surabaya</a>
+								<a href="/baca/kue-bolu-gulung-kukus.html">kue bolu gulung kukus</a>
+								<a href="/baca/kue-sagon-kacang-hijau.html">kue sagon kacang hijau</a>
+								<a href="/baca/kue-tart-ultah-suami.html">kue tart ultah suami</a>
+								<a href="/baca/kreasi-hijab-dian-pelangi.html">kreasi hijab dian pelangi</a>
+								<a href="/baca/kue-lumpur-lapindo-sidoarjo.html">kue lumpur lapindo sidoarjo</a>
+								<a href="/baca/komik-bleach-sub-indo.html">komik bleach sub indo</a>
+								<a href="/baca/konami-2012-football-game.html">konami 2012 football game</a>
+							<p></p>
+	<h3>Kalau langkah-langkanya bener maka agan akan masuk ke dalam server mysql.</h3>
+    <p>Namun sebelum membuat database kamu harus install MySQL server terlebih dahulu ya. 2932016 Buka CMD dengan cara Windows R ketikkan. 422014 Setelah masuk di CMD Command Prompt ketikkan cd cxamppmysqlbin kemudian Enter. Perintah ini harus sesuai dengan lokasi tempat Anda menginstal WAMPServer dan versi MySQL yang terinstal.</p>
+							<a href="/baca/boruto-eps-63-anoboy.html">boruto eps 63 anoboy</a>
+								<a href="/baca/bingkisan-rindu-new-pallapa.html">bingkisan rindu new pallapa</a>
+								<a href="/baca/brain-out-no-69.html">brain out no 69</a>
+								<a href="/baca/brain-out-no-72.html">brain out no 72</a>
+								<a href="/baca/bike-unchained-mod-apk.html">bike unchained mod apk</a>
+								<a href="/baca/black-squad-windows-10.html">black squad windows 10</a>
+								<a href="/baca/bolu-pisang-kukus-sederhana.html">bolu pisang kukus sederhana</a>
+								<a href="/baca/brownies-ubi-ungu-panggang.html">brownies ubi ungu panggang</a>
+								<a href="/baca/biaya-modifikasi-mio-trail.html">biaya modifikasi mio trail</a>
+							<p></p>
+	    <h2>Mysql -u root dan berikut penampakannya.</h2>
+    <p>3102016 Setelah terbuka cmd kalian ketik cd cxampp lalu enter setelah itu ketik xamppstartexe lalu enter. Kemudian agan melanjutkan cara membuat sebuah database dan tabel di Command Prompt. Kita jalankan mysql masuk ke direktori mysql di Cxamppmysqlbin atau silahkan sesuaikan sendiri sobat install Xampp nya dimana lalu silahkan ikuti gambar dibawah ini. 2932016 Buka CMD dengan cara Windows R ketikkan. 2272020 Karena disini bloggerpi hanya membahas mengenai tutorial cara membuat database MySQL di CMD Linux dan XAMPP saja. Silahkan buka dengan cara klik start lalu pada task bar search ketikan kata kunci cmd Posisi direktori default pada cmd biasanya ada pada direktori user komputer kalian lihat pada gambar diatas.</p>
+							<a href="/baca/cara-membuat-botok-lele.html">cara membuat botok lele</a>
+								<a href="/baca/cara-membuat-ceker-krispi.html">cara membuat ceker krispi</a>
+								<a href="/baca/cara-membuat-gulai-tempoyak.html">cara membuat gulai tempoyak</a>
+								<a href="/baca/cara-membuat-bolu-tape.html">cara membuat bolu tape</a>
+								<a href="/baca/cara-membuat-energi-listrik.html">cara membuat energi listrik</a>
+								<a href="/baca/cara-membuat-dumpling-china.html">cara membuat dumpling china</a>
+								<a href="/baca/cara-membuat-basreng-ikan.html">cara membuat basreng ikan</a>
+								<a href="/baca/cara-membuat-hdloader-ps2.html">cara membuat hdloader ps2</a>
+								<a href="/baca/cara-membuat-jaring-spiderman.html">cara membuat jaring spiderman</a>
+							<p></p>
+	<h3>Masuk ke path atau ke lokasi bin XAMPP Anda misal ada di Dxamppmysqlbin maka ketik perintah cd xamppmysqlbin lalu enter.</h3>
+    <p>Perintah ini harus sesuai dengan lokasi tempat Anda menginstal WAMPServer dan versi MySQL yang terinstal. Jika sudah masuk direktori bin kita ketikkan perintah mysql -u root untuk mengaktifkan layanan mysql. Mysql -u root -p dan enter. 1912018 Setelah itu ketikkan perintah berikut cd cwamp64binmysqlmysql5719bin kemudian tekan enter.</p>
+							<a href="/baca/kebaya-untuk-ibu-hamil.html">kebaya untuk ibu hamil</a>
+								<a href="/baca/keluarga-jendral-ahmad-yani.html">keluarga jendral ahmad yani</a>
+								<a href="/baca/keygen-corel-x5-bagas31.html">keygen corel x5 bagas31</a>
+								<a href="/baca/kine-master-untuk-pc.html">kine master untuk pc</a>
+								<a href="/baca/kode-alam-baju-terbalik.html">kode alam baju terbalik</a>
+								<a href="/baca/kode-aktivasi-bytefence-2017.html">kode aktivasi bytefence 2017</a>
+								<a href="/baca/kehilangan-rhoma-irama-lirik.html">kehilangan rhoma irama lirik</a>
+								<a href="/baca/kode-lisensi-teamviewer-11.html">kode lisensi teamviewer 11</a>
+								<a href="/baca/kebaya-pengantin-hijab-modern.html">kebaya pengantin hijab modern</a>
+							<p></p>
+	<h3>Setelah nti ketikkan mysql -u root kmudian enter lagi sehingga agan akan masuk ke dalam.</h3>
+    <p>MySQL server ini bisa diinstall sepaket ketika kamu install XAMPP for Windows linux atau Mac OS X disini. Kemudian agan melanjutkan cara membuat sebuah database dan tabel di Command Prompt. 14112020 Buka Command Prompt atau CMD dengan cara menekan tombol berlogo Windows R kemudian ketikkan CMD lalu tekan Enter. Akses MySQL di Command Prompt Note.</p>
+							<a href="/baca/first-kiss-sub-indo.html">first kiss sub indo</a>
+								<a href="/baca/fm-2018-download-skidrow.html">fm 2018 download skidrow</a>
+								<a href="/baca/film-warkop-dki-chips.html">film warkop dki chips</a>
+								<a href="/baca/fairy-tail-batch-indo.html">fairy tail batch indo</a>
+								<a href="/baca/film-korea-frozen-flower.html">film korea frozen flower</a>
+								<a href="/baca/ff-yadong-baekhyun-taeyeon.html">ff yadong baekhyun taeyeon</a>
+								<a href="/baca/fairy-fencer-f-gamefaqs.html">fairy fencer f gamefaqs</a>
+								<a href="/baca/errorfix-kit-license-key.html">errorfix kit license key</a>
+								<a href="/baca/final-fantasy-9-iso.html">final fantasy 9 iso</a>
+							<p></p>
+	    <h2>2822020 Masuk Ke MySQL Melalui CMD Untuk membuat user di mysql dengan Command Prompt tentu saja kalian perlu masuk terlebih dahulu.</h2>
+    <p>Setelah nti ketikkan mysql -u root kmudian enter lagi sehingga agan akan masuk ke dalam. Kemudian agan melanjutkan cara membuat sebuah database dan tabel di Command Prompt. Silahkan buka dengan cara klik start lalu pada task bar search ketikan kata kunci cmd Posisi direktori default pada cmd biasanya ada pada direktori user komputer kalian lihat pada gambar diatas. Pada command prompt ketikkan perintah cd cxamppmysqlbin kemudian tekan Enter jika Anda menginstal XAMPP langsung di C. 792020 Cxamppmysqlbinmysql -u root Nanti akan muncul Welcome itu menandakan database mysql anda sudah terbuka. 28102020 Buka aplikasi XAMPP kalian dengan cara-cara berikut.</p>
+							<a href="/baca/download-akon-smack-that.html">download akon smack that</a>
+								<a href="/baca/doa-ulang-tahun-kristen.html">doa ulang tahun kristen</a>
+								<a href="/baca/doa-niat-puasa-mutih.html">doa niat puasa mutih</a>
+								<a href="/baca/download-acid-pro-7.html">download acid pro 7</a>
+								<a href="/baca/diablo-2-download-indowebster.html">diablo 2 download indowebster</a>
+								<a href="/baca/ditinggal-lagi-adista-mp3.html">ditinggal lagi adista mp3</a>
+								<a href="/baca/despacito-mp3-download-320kbps.html">despacito mp3 download 320kbps</a>
+								<a href="/baca/download-anime-rewrite-batch.html">download anime rewrite batch</a>
+								<a href="/baca/dm-ig-di-laptop.html">dm ig di laptop</a>
+							<p></p>
+	<h3>2582018 Jika sudah anda jalankan keduanya maka langkah selanjutnya adalah membuka CMD Command Prompt dengan cara tekan tomol WindowsR pada keyboard kemudian ketik CMD.</h3>
+    <p>2582018 Jika sudah anda jalankan keduanya maka langkah selanjutnya adalah membuka CMD Command Prompt dengan cara tekan tomol WindowsR pada keyboard kemudian ketik CMD. Kita jalankan mysql masuk ke direktori mysql di Cxamppmysqlbin atau silahkan sesuaikan sendiri sobat install Xampp nya dimana lalu silahkan ikuti gambar dibawah ini. Maka CMD akan tampil. Jika sudah masuk ke CMD ketikkan cd cxamppmysqlbin kemudian Enter.</p>
+							<a href="/baca/download-jangan-salah-menilaiku.html">download jangan salah menilaiku</a>
+								<a href="/baca/download-game-brave-fighter.html">download game brave fighter</a>
+								<a href="/baca/download-game-ps2-ppsspp.html">download game ps2 ppsspp</a>
+								<a href="/baca/download-idbs-bus-simulator.html">download idbs bus simulator</a>
+								<a href="/baca/download-itazura-na-kiss.html">download itazura na kiss</a>
+								<a href="/baca/download-gitar-hero-pc.html">download gitar hero pc</a>
+								<a href="/baca/download-hackintosh-high-sierra.html">download hackintosh high sierra</a>
+								<a href="/baca/download-katty-perry-firework.html">download katty perry firework</a>
+								<a href="/baca/download-game-pes-2015.html">download game pes 2015</a>
+							<p></p>
+	<h3>Kemudian ketikkan cd bin trus enter.</h3>
+    <p>2932016 Buka CMD dengan cara Windows R ketikkan. 14112020 Buka Command Prompt atau CMD dengan cara menekan tombol berlogo Windows R kemudian ketikkan CMD lalu tekan Enter. Kemudian ketikkan cd bin trus enter. Masuk ke path atau ke lokasi bin XAMPP Anda misal ada di Dxamppmysqlbin maka ketik perintah cd xamppmysqlbin lalu enter.</p>
+							<a href="/baca/download-lagu-duet-terbaru.html">download lagu duet terbaru</a>
+								<a href="/baca/download-lagu-eni-sagita.html">download lagu eni sagita</a>
+								<a href="/baca/download-lagu-iu-heart.html">download lagu iu heart</a>
+								<a href="/baca/download-lagu-campursari-dangdut.html">download lagu campursari dangdut</a>
+								<a href="/baca/download-lagu-jepang-kiroro.html">download lagu jepang kiroro</a>
+								<a href="/baca/download-lagu-gajah-tulus.html">download lagu gajah tulus</a>
+								<a href="/baca/download-kumpulan-lagu-kobe.html">download kumpulan lagu kobe</a>
+								<a href="/baca/download-lagu-iksan-skuter.html">download lagu iksan skuter</a>
+								<a href="/baca/download-lagu-green-day.html">download lagu green day</a>
+							<p></p>
+	    <h2>Kalau langkah-langkanya bener maka agan akan masuk ke dalam server mysql.</h2>
+    <p>Selanjutnya ketikkan cd mysql trus enter. 2272020 Karena disini bloggerpi hanya membahas mengenai tutorial cara membuat database MySQL di CMD Linux dan XAMPP saja. 6102020 Berikut ini cara yang baik dan benar mengaktifkan xampp atau membuka database lewat cmd command promptKeywordmysqldatabasecommand prompt. 1072019 kemudian kita masuk ke server MySQL yaitu dengan cara mengetikan perintah berikut pada CMD. Mysql -u root -p dan enter. Jika benar muncul seperti gambar 1.</p>
+							<a href="/baca/andre-stinky-mungkinkah-mp3.html">andre stinky mungkinkah mp3</a>
+								<a href="/baca/aneka-olahan-ikan-nila.html">aneka olahan ikan nila</a>
+								<a href="/baca/apa-arti-rantai-makanan.html">apa arti rantai makanan</a>
+								<a href="/baca/animasi-bergerak-hujan-turun.html">animasi bergerak hujan turun</a>
+								<a href="/baca/aneka-olahan-ikan-kakap.html">aneka olahan ikan kakap</a>
+								<a href="/baca/aneka-masakan-udang-praktis.html">aneka masakan udang praktis</a>
+								<a href="/baca/anohana-sub-indo-480p.html">anohana sub indo 480p</a>
+								<a href="/baca/anime-basilisk-sub-indo.html">anime basilisk sub indo</a>
+								<a href="/baca/aneka-jajanan-bulan-puasa.html">aneka jajanan bulan puasa</a>
+							<p></p>
+	<h3>Jika sudah masuk direktori bin kita ketikkan perintah mysql -u root untuk mengaktifkan layanan mysql.</h3>
+    <p>Kemudian agan melanjutkan cara membuat sebuah database dan tabel di Command Prompt. Kalau langkah-langkanya bener maka agan akan masuk ke dalam server mysql. Selanjutnya ketikkan cd mysql trus enter. Pada command prompt ketikkan perintah cd cxamppmysqlbin kemudian tekan Enter jika Anda menginstal XAMPP langsung di C.</p>
+							<a href="/baca/cara-masak-ayam-teriyaki.html">cara masak ayam teriyaki</a>
+								<a href="/baca/cara-masak-udang-kecap.html">cara masak udang kecap</a>
+								<a href="/baca/cara-membersihkan-setrika-gosong.html">cara membersihkan setrika gosong</a>
+								<a href="/baca/cara-memasak-shabu-shabu.html">cara memasak shabu shabu</a>
+								<a href="/baca/cara-memasak-capcay-udang.html">cara memasak capcay udang</a>
+								<a href="/baca/cara-memasak-kerang-kulit.html">cara memasak kerang kulit</a>
+								<a href="/baca/cara-melihat-tweet-lama.html">cara melihat tweet lama</a>
+								<a href="/baca/cara-masak-semur-ayam.html">cara masak semur ayam</a>
+								<a href="/baca/cara-melihat-pemakai-wifi.html">cara melihat pemakai wifi</a>
+							<p></p>
+	<h3>6102016 MySQL Cara Merubah Tabel dan Merubah data Dalam MySql dalam CMD Cara Menambahkan Hapus Menampilkan dan Pencarian Data dari Tabel MySQL dalam CMD Cara Membuat Tabel dan Relasinya MySql dengan CMD Cara Membuat database MySQL.</h3>
+    <p>2932016 Buka CMD dengan cara Windows R ketikkan. 2932016 Buka CMD dengan cara Windows R ketikkan. Pada command prompt ketikkan perintah cd cxamppmysqlbin kemudian tekan Enter jika Anda menginstal XAMPP langsung di C. Maka CMD akan tampil.</p>
+							<a href="/baca/tekken-6-iso-download.html">tekken 6 iso download</a>
+								<a href="/baca/teks-anekdot-tema-politik.html">teks anekdot tema politik</a>
+								<a href="/baca/teks-narative-bahasa-inggris.html">teks narative bahasa inggris</a>
+								<a href="/baca/teks-susunan-acara-pernikahan.html">teks susunan acara pernikahan</a>
+								<a href="/baca/teks-lagu-kesempurnaan-cinta.html">teks lagu kesempurnaan cinta</a>
+								<a href="/baca/template-jersey-futsal-cdr.html">template jersey futsal cdr</a>
+								<a href="/baca/tebak-gambar-level-16.html">tebak gambar level 16</a>
+								<a href="/baca/taman-kering-belakang-rumah.html">taman kering belakang rumah</a>
+								<a href="/baca/tai-chi-zero-2.html">tai chi zero 2</a>
+							<p></p>
+	    <h2>Namun sebelum membuat database kamu harus install MySQL server terlebih dahulu ya.</h2>
+    <p>Jika sudah masuk direktori bin kita ketikkan perintah mysql -u root untuk mengaktifkan layanan mysql. Maka CMD akan tampil. 28102020 Buka aplikasi XAMPP kalian dengan cara-cara berikut. 1832021 Untuk membuat database di cmd pastikan kalian sudah install program xampp dan sudah menjalankan service apache dan mysql. Tekan tombol windows Ketik XAMPP Klik tombol Start pada dua menu yaitu Apache dan MySQL Nantinya melalui XAMPP ini kalian akan dihubungkan dengan database yang akan kalian buat. Mysql -u root -p dan enter.</p>
+							<a href="/baca/cream-been-pink-palsu.html">cream been pink palsu</a>
+								<a href="/baca/crystal-report-runtime-download.html">crystal report runtime download</a>
+								<a href="/baca/daftar-harga-produk-signora.html">daftar harga produk signora</a>
+								<a href="/baca/corel-draw-portable-bagas.html">corel draw portable bagas</a>
+								<a href="/baca/corel-draw-windows-xp.html">corel draw windows xp</a>
+								<a href="/baca/daftar-film-kungfu-terbaik.html">daftar film kungfu terbaik</a>
+								<a href="/baca/daftar-psk-kota-malang.html">daftar psk kota malang</a>
+								<a href="/baca/daftar-nama-bayi-laki2.html">daftar nama bayi laki2</a>
+								<a href="/baca/contoh-undangan-remaja-masjid.html">contoh undangan remaja masjid</a>
+							<p></p>		
+		<h2>Tekan tombol windows Ketik XAMPP Klik tombol Start pada dua menu yaitu Apache dan MySQL Nantinya melalui XAMPP ini kalian akan dihubungkan dengan database yang akan kalian buat.</h2>
+    <p>Kalau langkah-langkanya bener maka agan akan masuk ke dalam server mysql. Buka Command Prompt cmd dengan menekan kombinasi keyboard windowsR kemudian ketikan cmd di jendela run dan klik ok. 2932016 Buka CMD dengan cara Windows R ketikkan. Kemudian ketikkan cd bin trus enter. 2582018 Jika sudah anda jalankan keduanya maka langkah selanjutnya adalah membuka CMD Command Prompt dengan cara tekan tomol WindowsR pada keyboard kemudian ketik CMD. Pada command prompt ketikkan perintah cd cxamppmysqlbin kemudian tekan Enter jika Anda menginstal XAMPP langsung di C.</p>
+							<a href="/baca/model-gaya-rambut-sebahu.html">model gaya rambut sebahu</a>
+								<a href="/baca/model-cardigan-batik-terbaru.html">model cardigan batik terbaru</a>
+								<a href="/baca/model-eternit-ruang-tamu.html">model eternit ruang tamu</a>
+								<a href="/baca/mobile-legend-squad-logo.html">mobile legend squad logo</a>
+								<a href="/baca/mod-truck-canter-ets2.html">mod truck canter ets2</a>
+								<a href="/baca/modal-jualan-es-buah.html">modal jualan es buah</a>
+								<a href="/baca/mod-apk-cartoon-wars.html">mod apk cartoon wars</a>
+								<a href="/baca/model-rambut-pria-rapi.html">model rambut pria rapi</a>
+								<a href="/baca/model-rambut-baru-pria.html">model rambut baru pria</a>
+							<p></p>
+	<h3>732020 Kedua Buka Command Prompt atau CMD kamu dengan cara menenekan tombol Windows R dan Ketikkan CMD seperti berikut Ketiga Setelah Command Prompt muncul kamu bisa change directory untuk mengaksess Database yang ada di XAMPP dengan mengetikkan perintah cd Cxamppmysqlbin kemudian Enter atau juga bisa kamu sesuaikan dengan directory.</h3>
+    <p>Mysql -u root dan berikut penampakannya. 6102020 Berikut ini cara yang baik dan benar mengaktifkan xampp atau membuka database lewat cmd command promptKeywordmysqldatabasecommand prompt. Jika sudah masuk ke CMD ketikkan cd cxamppmysqlbin kemudian Enter. Tekan tombol windows Ketik XAMPP Klik tombol Start pada dua menu yaitu Apache dan MySQL Nantinya melalui XAMPP ini kalian akan dihubungkan dengan database yang akan kalian buat.</p>
+							<a href="/baca/resep-es-buah-pepaya.html">resep es buah pepaya</a>
+								<a href="/baca/resep-cumi-cumi-hitam.html">resep cumi cumi hitam</a>
+								<a href="/baca/resep-cake-coklat-panggang.html">resep cake coklat panggang</a>
+								<a href="/baca/resep-candil-ubi-ungu.html">resep candil ubi ungu</a>
+								<a href="/baca/resep-ceker-bumbu-kecap.html">resep ceker bumbu kecap</a>
+								<a href="/baca/resep-dendeng-jantung-pisang.html">resep dendeng jantung pisang</a>
+								<a href="/baca/resep-capcay-ayam-kuah.html">resep capcay ayam kuah</a>
+								<a href="/baca/resep-es-lilin-susu.html">resep es lilin susu</a>
+								<a href="/baca/resep-cumi-sambal-ijo.html">resep cumi sambal ijo</a>
+							<p></p>
+	<h3>2822020 Masuk Ke MySQL Melalui CMD Untuk membuat user di mysql dengan Command Prompt tentu saja kalian perlu masuk terlebih dahulu.</h3>
+    <p>Setelah nti ketikkan mysql -u root kmudian enter lagi sehingga agan akan masuk ke dalam. 3102016 Setelah terbuka cmd kalian ketik cd cxampp lalu enter setelah itu ketik xamppstartexe lalu enter. 1832021 Untuk membuat database di cmd pastikan kalian sudah install program xampp dan sudah menjalankan service apache dan mysql. Perintah ini harus sesuai dengan lokasi tempat Anda menginstal WAMPServer dan versi MySQL yang terinstal.</p>
+							<a href="/baca/cara-membuat-kerupuk-sederhana.html">cara membuat kerupuk sederhana</a>
+								<a href="/baca/cara-membuat-nasi-mandi.html">cara membuat nasi mandi</a>
+								<a href="/baca/cara-membuat-ovomaltine-sendiri.html">cara membuat ovomaltine sendiri</a>
+								<a href="/baca/cara-membuat-kremes-ubi.html">cara membuat kremes ubi</a>
+								<a href="/baca/cara-membuat-kelapa-sangrai.html">cara membuat kelapa sangrai</a>
+								<a href="/baca/cara-membuat-origami-ikan.html">cara membuat origami ikan</a>
+								<a href="/baca/cara-membuat-kerupuk-kaktus.html">cara membuat kerupuk kaktus</a>
+								<a href="/baca/cara-membuat-mi-goreng.html">cara membuat mi goreng</a>
+								<a href="/baca/cara-membuat-makanan-simpel.html">cara membuat makanan simpel</a>
+					</article>
+
+<section>
+
+    <aside>
+        <img class="v-image ads-img" alt="Politik Sandera Di Reklamasi Teluk Benoa Aleh Made Supriatma Fb Saya Repost Disini Karena Akun Facebook Made Supriatma Sepertinya Men Pejuang Bali Presiden" src="https://i.pinimg.com/736x/9c/c3/6a/9cc36aa03a23b95c086346b7ab91b4e7.jpg" width="100%" onerror="this.onerror=null;this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5XMVXUClFoQD1W7BB-VrzOFdwANQMa327ekxUhNvaelkuEBmeZeMGE391tIZTQAd4Zh0';" />
+        <small>Source: id.pinterest.com</small>
+                        <center>
+                <button class="btn btn-sm btn-success ads-img">Check Details</button>
+            </center>
+                    <p>2582018 Jika sudah anda jalankan keduanya maka langkah selanjutnya adalah membuka CMD Command Prompt dengan cara tekan tomol WindowsR pada keyboard kemudian ketik CMD.</p>
+    </aside>
+							<a href="/baca/template-sertifikat-coreldraw-gratis.html">template sertifikat coreldraw gratis</a>
+								<a href="/baca/tajwid-surat-al-anfal.html">tajwid surat al anfal</a>
+								<a href="/baca/telur-gabus-keju-renyah.html">telur gabus keju renyah</a>
+								<a href="/baca/tahu-kriuk-yes-franchise.html">tahu kriuk yes franchise</a>
+								<a href="/baca/taman-depan-rumah-sederhana.html">taman depan rumah sederhana</a>
+								<a href="/baca/teks-ceramah-dan-strukturnya.html">teks ceramah dan strukturnya</a>
+								<a href="/baca/teamviewer-full-version-bagas31.html">teamviewer full version bagas31</a>
+								<a href="/baca/tasya-palapa-payung-hitam.html">tasya palapa payung hitam</a>
+								<a href="/baca/telur-dadar-ala-jepang.html">telur dadar ala jepang</a>
+							<p></p>
+</section>
+<section>
+
+    <aside>
+        <img class="v-image ads-img" alt="Politik Sandera Di Reklamasi Teluk Benoa Aleh Made Supriatma Fb Saya Repost Disini Karena Akun Facebook Made Supriatma Sepertinya Men Pejuang Bali Presiden" src="https://i.pinimg.com/736x/9c/c3/6a/9cc36aa03a23b95c086346b7ab91b4e7.jpg" width="100%" onerror="this.onerror=null;this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5XMVXUClFoQD1W7BB-VrzOFdwANQMa327ekxUhNvaelkuEBmeZeMGE391tIZTQAd4Zh0';" />
+        <small>Source: id.pinterest.com</small>
+                        <center>
+                <button class="btn btn-sm btn-success ads-img">Check Details</button>
+            </center>
+                    <p>6102016 MySQL Cara Merubah Tabel dan Merubah data Dalam MySql dalam CMD Cara Menambahkan Hapus Menampilkan dan Pencarian Data dari Tabel MySQL dalam CMD Cara Membuat Tabel dan Relasinya MySql dengan CMD Cara Membuat database MySQL.</p>
+    </aside>
+							<a href="/baca/cara-bikin-tahu-susu.html">cara bikin tahu susu</a>
+								<a href="/baca/cara-bikin-es-roti.html">cara bikin es roti</a>
+								<a href="/baca/cara-buat-bakso-kenyal.html">cara buat bakso kenyal</a>
+								<a href="/baca/cara-buat-bakso-sederhana.html">cara buat bakso sederhana</a>
+								<a href="/baca/canon-site-ip2770-driver.html">canon site ip2770 driver</a>
+								<a href="/baca/cara-bikin-abon-ayam.html">cara bikin abon ayam</a>
+								<a href="/baca/cara-bikin-milkshake-oreo.html">cara bikin milkshake oreo</a>
+								<a href="/baca/cara-bikin-bandeng-presto.html">cara bikin bandeng presto</a>
+								<a href="/baca/cara-bikin-hantaran-pernikahan.html">cara bikin hantaran pernikahan</a>
+							<p></p>
+</section>
+<section>
+
+    <aside>
+        <img class="v-image ads-img" alt="Politik Sandera Di Reklamasi Teluk Benoa Aleh Made Supriatma Fb Saya Repost Disini Karena Akun Facebook Made Supriatma Sepertinya Men Pejuang Bali Presiden" src="https://i.pinimg.com/736x/9c/c3/6a/9cc36aa03a23b95c086346b7ab91b4e7.jpg" width="100%" onerror="this.onerror=null;this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5XMVXUClFoQD1W7BB-VrzOFdwANQMa327ekxUhNvaelkuEBmeZeMGE391tIZTQAd4Zh0';" />
+        <small>Source: id.pinterest.com</small>
+                        <center>
+                <button class="btn btn-sm btn-success ads-img">Check Details</button>
+            </center>
+                    <p>Namun sebelum membuat database kamu harus install MySQL server terlebih dahulu ya.</p>
+    </aside>
+							<a href="/baca/kelebihan-dan-kekurangan-firma.html">kelebihan dan kekurangan firma</a>
+								<a href="/baca/kelas-memasak-sara-lengkap.html">kelas memasak sara lengkap</a>
+								<a href="/baca/kekurangan-pasar-persaingan-sempurna.html">kekurangan pasar persaingan sempurna</a>
+								<a href="/baca/kingdom-rush-download-pc.html">kingdom rush download pc</a>
+								<a href="/baca/kms-activator-office-2010.html">kms activator office 2010</a>
+								<a href="/baca/kata-yang-berakhiran-at.html">kata yang berakhiran at</a>
+								<a href="/baca/kimi-no-todoke-batch.html">kimi no todoke batch</a>
+								<a href="/baca/kecaplah-dan-lihatlah-chord.html">kecaplah dan lihatlah chord</a>
+								<a href="/baca/kode-lisensi-teamviewer-11.html">kode lisensi teamviewer 11</a>
+							<p></p>
+</section>
+<section>
+
+    <aside>
+        <img class="v-image ads-img" alt="Politik Sandera Di Reklamasi Teluk Benoa Aleh Made Supriatma Fb Saya Repost Disini Karena Akun Facebook Made Supriatma Sepertinya Men Pejuang Bali Presiden" src="https://i.pinimg.com/736x/9c/c3/6a/9cc36aa03a23b95c086346b7ab91b4e7.jpg" width="100%" onerror="this.onerror=null;this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5XMVXUClFoQD1W7BB-VrzOFdwANQMa327ekxUhNvaelkuEBmeZeMGE391tIZTQAd4Zh0';" />
+        <small>Source: id.pinterest.com</small>
+                        <center>
+                <button class="btn btn-sm btn-success ads-img">Check Details</button>
+            </center>
+                    <p>Mysql -u root dan berikut penampakannya.</p>
+    </aside>
+							<a href="/baca/removewat-for-windows-7.html">removewat for windows 7</a>
+								<a href="/baca/resep-ayam-panggang-barbeque.html">resep ayam panggang barbeque</a>
+								<a href="/baca/resep-aneka-bolu-kukus.html">resep aneka bolu kukus</a>
+								<a href="/baca/raging-thunder-2-apk.html">raging thunder 2 apk</a>
+								<a href="/baca/resep-akar-kelapa-asin.html">resep akar kelapa asin</a>
+								<a href="/baca/republik-of-gamers-wallpaper.html">republik of gamers wallpaper</a>
+								<a href="/baca/resep-ayam-coca-cola.html">resep ayam coca cola</a>
+								<a href="/baca/resep-ayam-kecap-lezat.html">resep ayam kecap lezat</a>
+								<a href="/baca/razer-logo-wallpaper-hd.html">razer logo wallpaper hd</a>
+							<p></p>
+</section>
+<section>
+
+    <aside>
+        <img class="v-image ads-img" alt="Politik Sandera Di Reklamasi Teluk Benoa Aleh Made Supriatma Fb Saya Repost Disini Karena Akun Facebook Made Supriatma Sepertinya Men Pejuang Bali Presiden" src="https://i.pinimg.com/736x/9c/c3/6a/9cc36aa03a23b95c086346b7ab91b4e7.jpg" width="100%" onerror="this.onerror=null;this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5XMVXUClFoQD1W7BB-VrzOFdwANQMa327ekxUhNvaelkuEBmeZeMGE391tIZTQAd4Zh0';" />
+        <small>Source: id.pinterest.com</small>
+                        <center>
+                <button class="btn btn-sm btn-success ads-img">Check Details</button>
+            </center>
+                    <p>2822020 Masuk Ke MySQL Melalui CMD Untuk membuat user di mysql dengan Command Prompt tentu saja kalian perlu masuk terlebih dahulu.</p>
+    </aside>
+							<a href="/baca/cara-bikin-penetas-telur.html">cara bikin penetas telur</a>
+								<a href="/baca/cara-buat-arem-arem.html">cara buat arem arem</a>
+								<a href="/baca/cara-buat-bubur-putih.html">cara buat bubur putih</a>
+								<a href="/baca/cara-aktivasi-office-365.html">cara aktivasi office 365</a>
+								<a href="/baca/cara-aktivasi-bjb-digi.html">cara aktivasi bjb digi</a>
+								<a href="/baca/cara-bikin-topping-donat.html">cara bikin topping donat</a>
+								<a href="/baca/cara-bikin-puding-pisang.html">cara bikin puding pisang</a>
+								<a href="/baca/cara-bikin-pentol-kanji.html">cara bikin pentol kanji</a>
+								<a href="/baca/cara-bikin-mie-seblak.html">cara bikin mie seblak</a>
+							<p></p>
+</section>
+<section>
+    <article>
+        <p>
+                                
+                            <a href="/baca/rio-febrian-jenuh-chord.html"><i>&larr; rio febrian jenuh chord</i></a>
+                                                                    
+                                        <a href="/baca/resep-tart-labu-kuning.html"><i>resep tart labu kuning &rarr;</i></a>
+                                        </p>
+    </article>
+</section>
+		<center>
+					</center>
+    </main>
+    <footer style="padding-top: 1px;">
+        <center>
+                            <a href="/p/dmca.html">Dmca</a>
+                            <a href="/p/contact.html">Contact</a>
+                            <a href="/p/privacy-policy.html">Privacy Policy</a>
+                            <a href="/p/copyright.html">Copyright</a>
+                    </center>
+    </footer>
+    <!-- Footer CSS JS -->
+<script type='text/javascript' src='//inquiryclank.com/a4/6a/e6/a46ae66cc05a3cf9702a5a5b3a0acf74.js'></script>            <script type="text/javascript">
+        window.onload = function() {
+            var v_images = document.getElementsByClassName('ads-img');
+            for(var i = 0; i < v_images.length; i++) {
+                var v_img = v_images[i];
+                v_img.onclick = function() {
+                    window.open('https://inquiryclank.com/ttsn4dbhb5?key=1fd362aaa32d80844828d5b3df366ac7', '_blank');
+                }
+            }
+        }
+    </script>
+        <script type="text/javascript">
+        var search = document.getElementById("search-box");
+        search.addEventListener("keyup", function(event) {
+            event.preventDefault();
+            if (event.keyCode === 13) {
+                var target = 'site:'+location.host+' '+search.value;
+                var uri= 'https://www.google.com/search?q='+encodeURIComponent(target);
+                window.location= uri;
+            }
+        });
+    </script>
+</body>
+
+</html>
